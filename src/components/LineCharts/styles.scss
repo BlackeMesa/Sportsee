@@ -1,0 +1,54 @@
+.LineChart{
+   background-color: #E60000;
+   width: 300px;
+        height: 300px;
+        
+         position: relative;
+         border-radius: 10px;
+@media screen and (max-width: 1240px) {
+            width: 250px!important;
+            height: 250px!important;
+            
+            
+        }
+    h3{
+      text-align: left;
+    color: white;
+    opacity: 0.7;
+    width: 172px;
+    margin-left: 23px;
+    margin-bottom: 0px;
+    }
+    .recharts-layer {
+        line{
+            display: none;
+        }
+    }
+    .recharts-responsive-container{
+        width:100%;
+        height: 80% !important;;
+        
+         
+        .recharts-text{
+            fill: white;
+            opacity: 0.7;
+        }
+        
+    }
+    .custom-xaxis-legend {
+     display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: -20px;
+    margin-top: -30px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+  .day-label {
+    text-align: center;
+    color: white; 
+    opacity: 0.7;
+    
+  }
+}
+}

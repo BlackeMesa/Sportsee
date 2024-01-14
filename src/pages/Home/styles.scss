@@ -1,0 +1,41 @@
+.Home-bloc{
+        width: 100%;
+    padding: 35px 40px;
+    
+.title{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    span{
+        color: red;
+        margin-left: 7px;
+    }
+}
+.main-userInfo{
+    display: flex;
+    justify-content: space-between;
+        gap: 30px;
+        @media screen and (max-width: 1240px) {
+            flex-direction: column;
+            
+            
+        }
+    .section-nutriment{
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        @media screen and (max-width: 1240px) {
+           flex-direction: row;
+           flex-wrap: wrap  ;
+           gap: 30px;
+            
+        }
+    }
+    
+}
+.container-sub-graph{
+    display: flex;
+   height: 300px;
+    justify-content: space-between
+}
+}

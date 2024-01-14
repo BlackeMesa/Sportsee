@@ -1,0 +1,42 @@
+.barChart{
+     background-color: rgba(251, 251, 251, 1);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    position: relative;
+    padding: 30px 0px 30px 30px;
+  
+    .recharts-wrapper{
+        @media screen and (max-width: 1240px) {
+            width: 800px!important;
+            
+            
+        }
+    }
+    .recharts-legend-item-text{
+        color: rgba(116, 121, 140, 1)!important;
+    }
+
+    h3{
+        text-align: left;
+        margin:0px;
+        position: absolute;
+    }
+    .recharts-cartesian-axis-tick{
+        padding: 10px;
+        line{
+            display: none;
+        }
+    }
+    .recharts-cartesian-axis.recharts-yAxis.yAxis{
+        line{
+            display: none;
+        }
+    }
+    .recharts-legend-item{
+        margin-right: 50px!important;   
+        .recharts-surface{
+            width: 8px;
+        margin-right: 10px!important;
+        }
+    }
+}

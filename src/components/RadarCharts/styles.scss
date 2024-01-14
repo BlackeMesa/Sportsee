@@ -1,0 +1,17 @@
+.radarChart{
+border-radius: 10px;
+
+@media screen and (max-width: 1240px) {
+        width: 250px!important;
+        height: 250px!important;
+        
+        
+    }
+.recharts-wrapper{
+    width: 100%!important;
+    height: 100%!important;
+}
+    .recharts-polar-angle-axis-tick-value {
+        margin: 20px;
+    }
+}

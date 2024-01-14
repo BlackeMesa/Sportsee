@@ -1,0 +1,58 @@
+.radialBarChart{
+    background-color: rgba(251, 251, 251, 1);
+    border-radius: 10px;
+   position: relative;
+   width: 300px!important;
+    height: 300px;
+    @media screen and (max-width: 1240px) {
+            width: 250px!important;
+            height: 250px!important;
+            
+            
+        }
+   .chart{
+    width: 100%;
+    height: 100%;
+  
+   }
+   h3{
+        position: absolute;
+    top: 10px;
+    left: 30px;
+
+   }
+   .legend{
+    position: absolute;
+    top: 15px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .legend-bloc{
+        width: 200px;
+        height: 200px;
+        background-color: white;
+        border-radius: 999px;
+    .legend-text{
+        p{
+            margin: 0px;
+                font-size: 30px;
+    font-weight: bold;
+        }
+        span{
+            color: 
+rgba(116, 121, 140, 1);
+font-weight: 600;
+line-height: 1.5;
+        }
+        width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    }
+    }
+   }
+}
