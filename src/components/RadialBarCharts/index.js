@@ -10,9 +10,8 @@ const Index = ({ userId }) => {
     const fetchData = async () => {
       try {
         const result = await getUserInfo(userId);
-        // Utiliser todayScore ou score en fonction de ce qui est disponible
-        const userScore = result.data.todayScore || result.data.score;
-        setScore(userScore); // S'assurer que la valeur est entre 0 et 1
+        const userScore = result.todayScore;
+        setScore(userScore); 
       } catch (error) {
         console.error("There was an error fetching the user info:", error);
       }

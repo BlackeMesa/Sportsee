@@ -17,7 +17,7 @@ function HeaderV() {
           <img src="./img/haltere.png" alt="haltere" />
         </div>
       </div>
-      <div>
+      <div className='container-copyright'>
         <small>Copiryght, SportSee 2024</small>
       </div>
     </section>

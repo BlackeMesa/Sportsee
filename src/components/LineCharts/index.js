@@ -11,8 +11,8 @@ function Index({ userId }) {
   useEffect(() => {
     const fetchData = async () => {
       const data = await getUserAverageSessions(userId);
-      if (data && data.data.sessions) {
-        const transformedData = data.data.sessions.map((session) => ({
+      if (data && data.sessions) {
+        const transformedData = data.sessions.map((session) => ({
           ...session,
           dayLabel: dayOfWeek[session.day - 1],
         }));
@@ -24,7 +24,7 @@ function Index({ userId }) {
     fetchData();
   }, [userId]);
 
-  // Ajouter une fonction pour gérer le survol
+
   const handleMouseOver = (data, index) => {
     setActiveIndex(dayOfWeek.indexOf(data.dayLabel));
   };

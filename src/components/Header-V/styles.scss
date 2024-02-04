@@ -6,14 +6,17 @@
     width: 100px;
         flex-direction: column;
         position: relative;
-        small{
-            color: white;
-            rotate: 270deg;
-            position: absolute;
-                bottom: 100px;
-   
-    width: 155px;
-    left: -40px;
+        .container-copyright{
+height: 275px;
+            small{
+                color: white;
+                rotate: 270deg;
+                position: absolute;
+                    bottom: 100px;
+       
+        width: 155px;
+        left: -40px;
+            }
         }
     nav{
         display: flex;

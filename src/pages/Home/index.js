@@ -1,21 +1,30 @@
-import React from 'react'
+import React from "react";
 import "./styles.scss";
 import { getUserInfo } from "../../service/apiService.js";
 import { useEffect, useState } from "react";
-import NutrimentsBloc from '../../components/NutrimentsBloc';
-import BarCharts from '../../components/BarCharts';
-import AverageSessionsChart from '../../components/LineCharts';
-import UserPerformance from "../../components/RadarCharts/index.js"
-import UserScore from "../../components/RadialBarCharts/index.js"
+import NutrimentsBloc from "../../components/NutrimentsBloc";
+import BarCharts from "../../components/BarCharts";
+import AverageSessionsChart from "../../components/LineCharts";
+import UserPerformance from "../../components/RadarCharts/index.js";
+import UserScore from "../../components/RadialBarCharts/index.js";
 function Index() {
-  
   const [userInfo, setUserInfo] = useState(null);
-   const [selectedUserId, setSelectedUserId] = useState("12");
+  const [selectedUserId, setSelectedUserId] = useState("12");
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getUserInfo(selectedUserId);
-      setUserInfo(data);
+      try {
+        const data = await getUserInfo(selectedUserId);
+   
+        if (data) {
+          setUserInfo(data);
+        } else {
+          throw new Error("Aucune donnée disponible.");
+        }
+      } catch (error) {
+        setError(error.message);
+      }
     };
 
     if (selectedUserId) {
@@ -23,12 +32,13 @@ function Index() {
     }
   }, [selectedUserId]);
   let calorieCount, proteinCount, carbohydrateCount, lipidCount;
- if (userInfo) {
+  if (userInfo) {
+    ({ calorieCount, proteinCount, carbohydrateCount, lipidCount } = userInfo.keyData);
+  }
 
-  ({ calorieCount, proteinCount, carbohydrateCount, lipidCount } = userInfo.data.keyData);
- }
-  
-
+  if (error) {
+    return <p>Erreur : {error}</p>;
+  }
   if (!userInfo) {
     return <div>Loading...</div>;
   }
@@ -45,17 +55,17 @@ function Index() {
       <div className="title">
         <h1>
           Bonjour
-          <span>{userInfo.data.userInfos.firstName}</span>
+          <span>{userInfo.firstName}</span>
         </h1>
         <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
       </div>
       <div className="main-userInfo">
         <div className="section-graph">
-          <BarCharts userId={userInfo.data.id} />
+          <BarCharts userId={userInfo.id} />
           <div className="container-sub-graph">
-            <AverageSessionsChart userId={userInfo.data.id} />
-            <UserPerformance userId={userInfo.data.id} />
-            <UserScore userId={userInfo.data.id} />
+            <AverageSessionsChart userId={userInfo.id} />
+            <UserPerformance userId={userInfo.id} />
+            <UserScore userId={userInfo.id} />
           </div>
         </div>
         <div className="section-nutriment">
@@ -69,4 +79,4 @@ function Index() {
   );
 }
 
-export default Index
+export default Index;

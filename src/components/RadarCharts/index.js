@@ -9,15 +9,14 @@ const Index = ({ userId }) => {
   const typeLegends = ["Intensité", "Vitesse", "Force", "Endurance", "Energie", "Cardio"];
 
    useEffect(() => {
-     // Suppose getUserPerformance is imported from another file
+   
      const fetchData = async () => {
        const result = await getUserPerformance(userId);
-       // Adapter vos données en conséquence
-       const mappedData = result.data.data.map((item) => ({
+       const mappedData = result.data.map((item) => ({
          ...item,
          subject: typeLegends[item.kind -1 ],
        }));
-       console.log();
+     
        setData(mappedData);
      };
 
