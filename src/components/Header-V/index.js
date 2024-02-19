@@ -18,7 +18,7 @@ function HeaderV() {
         </div>
       </div>
       <div className='container-copyright'>
-        <small>Copiryght, SportSee 2024</small>
+        <small>Copyright, SportSee 2024</small>
       </div>
     </section>
   );
