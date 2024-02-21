@@ -1,4 +1,9 @@
 import { USER_ACTIVITY, USER_MAIN_DATA, USER_AVERAGE_SESSIONS, USER_PERFORMANCE } from "../data/data.js";
+import { UserModel } from "../models/UserModel.js";
+import { UserActivityModel } from "../models/UserActivityModel.js";
+import { UserAverageSessionsModel } from "../models/UserAverageSessionsModel.js";
+import { UserPerformanceModel } from "../models/UserPerformanceModel.js";
+
 
 const useMockData = process.env.REACT_APP_USE_MOCK_DATA === "true";
 
@@ -68,7 +73,7 @@ export const getUserPerformance = async (userId) => {
       const response = await fetch(`${BASE_URL}/${userId}/performance`);
       if (!response.ok) throw new Error("Network response was not ok");
       const data = await response.json();
-
+      
       return new UserPerformanceModel(data.data);
     } catch (error) {
       console.error("There has been a problem with your fetch operation:", error);
@@ -77,33 +82,8 @@ export const getUserPerformance = async (userId) => {
   }
 };
 
-class UserModel {
-  constructor(data) {
-    this.id = data.id;
-    this.firstName = data.userInfos.firstName;
-    this.lastName = data.userInfos.lastName;
-    this.age = data.userInfos.age;
-    this.todayScore = data.todayScore || data.score;
-    this.keyData = data.keyData;
-  }
-}
-class UserActivityModel {
-  constructor(data) {
-    this.userId = data.userId;
-    this.sessions = data.sessions;
-  }
-}
 
-class UserAverageSessionsModel {
-  constructor(data) {
-    this.userId = data.userId;
-    this.sessions = data.sessions;
-  }
-}
-class UserPerformanceModel {
-  constructor(data) {
-    this.userId = data.userId;
-    this.data = data.data;
 
-}
-}
+
+
+

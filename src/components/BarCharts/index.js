@@ -13,18 +13,19 @@ function Index({ userId }) {
       if (data && data.sessions) {
         const transformedData = data.sessions.map((session) => {
           const day = new Date(session.day).getDate();
-
+          
           return {
             day,
-            "Poids (kg)": session.kilogram,
-            "Calories brûlées (kCal)": session.calories,
+            [data.weightName] : session.kilogram,
+            [data.caloriesName]: session.calories,
           };
         });
+
         setActivityData(transformedData);
       }
     };
 
-    fetchData();
+   fetchData();
   }, [userId]);
 
   const CustomTooltip = ({ active, payload }) => {

@@ -6,17 +6,15 @@ import { Text } from "recharts";
 
 const Index = ({ userId }) => {
   const [data, setData] = useState([]);
-  const typeLegends = ["Intensité", "Vitesse", "Force", "Endurance", "Energie", "Cardio"];
-
+  
    useEffect(() => {
    
      const fetchData = async () => {
        const result = await getUserPerformance(userId);
        const mappedData = result.data.map((item) => ({
          ...item,
-         subject: typeLegends[item.kind -1 ],
+         subject: result.typeLegends[item.kind -1 ],
        }));
-     
        setData(mappedData);
      };
 

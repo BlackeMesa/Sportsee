@@ -37,7 +37,7 @@ function Index() {
   }
 
   if (error) {
-    return <p>Erreur : {error}</p>;
+    return <p>Erreur : Aucune donnée disponible.</p>;
   }
   if (!userInfo) {
     return <div>Loading...</div>;

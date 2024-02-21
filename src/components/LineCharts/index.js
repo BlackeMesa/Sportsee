@@ -6,15 +6,16 @@ import "./styles.scss";
 function Index({ userId }) {
   const [sessionData, setSessionData] = useState([]);
   const [activeIndex, setActiveIndex] = useState(null);
-  const dayOfWeek = ["L", "Ma", "M", "J", "V", "S", "D"];
+  const [dayData, setDayData] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await getUserAverageSessions(userId);
+      setDayData(data);
       if (data && data.sessions) {
         const transformedData = data.sessions.map((session) => ({
           ...session,
-          dayLabel: dayOfWeek[session.day - 1],
+          dayLabel: data.dayOfWeek[session.day - 1],
         }));
 
         setSessionData(transformedData);
@@ -26,7 +27,7 @@ function Index({ userId }) {
 
 
   const handleMouseOver = (data, index) => {
-    setActiveIndex(dayOfWeek.indexOf(data.dayLabel));
+    setActiveIndex(dayData.dayOfWeek.indexOf(data.dayLabel));
   };
 
   const CustomTooltip = ({ active, payload, label }) => {
@@ -47,7 +48,7 @@ function Index({ userId }) {
     return null;
   };
 
-  const overlayStart = activeIndex !== null ? (activeIndex / dayOfWeek.length) * 100 + 6 : 0;
+  const overlayStart = activeIndex !== null ? (activeIndex / dayData.dayOfWeek.length) * 100 + 6 : 0;
   const overlayEnd = 100;
   const overlayStyle = {
     position: "absolute",
